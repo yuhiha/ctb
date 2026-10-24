@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>유희하 CTB 출력 스타일</title>
+<meta name="description" content="공간 유희하가 실무에서 쓰는 AutoCAD 출력 스타일(CTB) 무료 배포">
+<meta property="og:title" content="유희하 CTB 출력 스타일">
+<meta property="og:description" content="공간 유희하 실무 출력 스타일 YUHIHA.ctb — 내려받기와 설치 방법">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 위 소개·내려받기 → 설치 3단계 → 펜 표 (체크리스트 페이지와 같은 청록 계열) */
+:root { --ink: #1f2e36; --muted: #6e7d82; --teal: #2e595e; --band: #f2f7f5; --line: #c9d4d4; --paper: #ffffff; --desk: #e9eeec }
+* { box-sizing: border-box }
+html, body { margin: 0; background: var(--desk); color: var(--ink) }
+body { font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px)) }
+main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px }
+.card { background: var(--paper); border-radius: 10px; padding: 22px 20px; box-shadow: 0 1px 6px rgba(31,46,54,.08) }
+.brand { border-left: 4px solid var(--teal); padding-left: 10px }
+.brand small { display: block; color: var(--teal); font-weight: 700; letter-spacing: .08em; font-size: 13px }
+h1 { margin: 2px 0 0; font-size: 26px; line-height: 1.25; font-weight: 900; letter-spacing: -.02em }
+.lead { margin: 12px 0 0; color: var(--muted) }
+.dl { display: block; margin-top: 18px; background: var(--teal); color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 18px; border-radius: 8px; padding: 15px }
+.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .85 }
+h2 { margin: 0 0 12px; font-size: 19px; display: flex; gap: 8px; align-items: baseline }
+h2 b { color: var(--teal); font-size: 15px }
+ol.steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px }
+ol.steps li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start }
+ol.steps li > span { width: 28px; height: 28px; border-radius: 50%; background: var(--teal); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 14px }
+code { background: var(--band); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; font-size: 14px; word-break: break-all }
+.note { margin: 14px 0 0; padding: 12px 14px; background: var(--band); border-radius: 8px; font-size: 14px; color: var(--ink) }
+.tbl { overflow-x: auto; margin: 0 -4px }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top }
+thead th { background: var(--band); color: var(--teal); font-size: 13px; border-top: 2px solid var(--teal) }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap }
+.sw { display: inline-block; width: 12px; height: 12px; border: 1px solid #999; vertical-align: -1px; margin-right: 6px }
+.lw { display: inline-block; width: 36px; background: var(--ink); vertical-align: middle; margin-right: 8px }
+footer { text-align: center; color: var(--muted); font-size: 13px }
+footer a { color: var(--teal) }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="brand"><small>YUHIHA · 공간 유희하</small><h1>유희하 CTB 출력 스타일</h1></div>
+    <p class="lead">공간 유희하가 실제 현장 도면을 출력할 때 쓰는 AutoCAD 출력 스타일이에요. 색상 번호마다 출력 굵기와 회색 단계를 정해 두어서, 레이어 색만 맞추면 벽·가구·치수·해치가 위계 있게 나와요.</p>
+    <a class="dl" href="YUHIHA.ctb" download="YUHIHA.ctb">YUHIHA.ctb 내려받기<small>AutoCAD 출력 스타일 · 5KB</small></a>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>설치 방법</h2>
+    <ol class="steps">
+      <li><span>1</span><div>AutoCAD 명령창에 <code>STYLESMANAGER</code>를 입력해요. 출력 스타일 폴더가 열려요.</div></li>
+      <li><span>2</span><div>내려받은 <code>YUHIHA.ctb</code>를 그 폴더에 넣어요.</div></li>
+      <li><span>3</span><div>출력(<code>Ctrl + P</code>)이나 페이지 설정에서 <b>플롯 스타일 테이블(펜 지정)</b>을 <code>YUHIHA.ctb</code>로 골라요. '플롯 스타일로 플롯'이 켜져 있어야 굵기가 적용돼요.</div></li>
+    </ol>
+    <p class="note">목록에 CTB가 안 보이면 그 도면이 <b>이름 있는 플롯 스타일(STB)</b> 도면이에요. 명령 <code>CONVERTPSTYLES</code>로 색상별 플롯 스타일 도면으로 바꾸면 나와요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>02</b>색상별 출력 굵기</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>색 번호</th><th>출력 굵기</th><th>출력 색</th><th>유희하 표준 레이어</th></tr></thead>
+      <tbody>
+        <tr><td class="n">2</td><td class="n"><i class="lw" style="height:3px"></i>0.40</td><td>검정</td><td>2. WAL</td></tr>
+        <tr><td class="n">123</td><td class="n"><i class="lw" style="height:2px"></i>0.30</td><td>검정</td><td>17. DIM2</td></tr>
+        <tr><td class="n">132</td><td class="n"><i class="lw" style="height:2px"></i>0.30</td><td>검정</td><td>12. TXT1, 16. DIM1</td></tr>
+        <tr><td class="n">4</td><td class="n"><i class="lw" style="height:2px"></i>0.25</td><td>검정</td><td>4. ELE1, 19. PRL, E-회로, W-커튼박스</td></tr>
+        <tr><td class="n">7</td><td class="n"><i class="lw" style="height:1.5px"></i>0.20</td><td>도면 색 그대로</td><td>3. WID, 20. FOR, 0, A-텍스트</td></tr>
+        <tr><td class="n">32</td><td class="n"><i class="lw" style="height:1.5px"></i>0.20</td><td>검정</td><td>15. FIN2</td></tr>
+        <tr><td class="n">15</td><td class="n"><i class="lw" style="height:1.5px"></i>0.18</td><td>검정</td><td>18. OPN</td></tr>
+        <tr><td class="n">155</td><td class="n"><i class="lw" style="height:1.5px"></i>0.18</td><td>검정</td><td>5. ELE2</td></tr>
+        <tr><td class="n">12</td><td class="n"><i class="lw" style="height:1px"></i>0.13</td><td>검정</td><td>14. FIN1</td></tr>
+        <tr><td class="n">43</td><td class="n"><i class="lw" style="height:1px"></i>0.13</td><td>검정</td><td>13. TXT2</td></tr>
+        <tr><td class="n">9</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td>검정</td><td>1. CEN</td></tr>
+        <tr><td class="n">74</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td>검정</td><td>8. FUR-L</td></tr>
+        <tr><td class="n">181</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td>검정</td><td>6. FUR1</td></tr>
+        <tr><td class="n">241</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td>검정</td><td>7. FUR2</td></tr>
+        <tr><td class="n">250</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td><i class="sw" style="background:#545454"></i>회색 84</td><td>—</td></tr>
+        <tr><td class="n">251</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td><i class="sw" style="background:#767676"></i>회색 118</td><td>10. ETC, 11. HID, 21. 251</td></tr>
+        <tr><td class="n">252</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td><i class="sw" style="background:#989898"></i>회색 152</td><td>9. HAT, 22. 252</td></tr>
+        <tr><td class="n">253</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td><i class="sw" style="background:#bababa"></i>회색 186</td><td>23. 253</td></tr>
+        <tr><td class="n">254</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td><i class="sw" style="background:#dbdbdb"></i>회색 219</td><td>24. 254</td></tr>
+        <tr><td class="n">255</td><td class="n"><i class="lw" style="height:1px"></i>0.09</td><td><i class="sw" style="background:#fafafa"></i>회색 250</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">색 1·3·5·41·52·200번(D-기호, M-기호, E-신설·기존, W-보강·단열 등)은 도면에서 정한 색 그대로 출력돼요. 나머지 색은 AutoCAD 기본 설정을 따라요.</p>
+  </section>
+
+  <footer>공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a><br>개인·회사 실무에 자유롭게 쓰셔도 돼요. 파일을 그대로 다시 팔거나 출처 없이 재배포하는 건 삼가 주세요.</footer>
+</main>
+</body>
+</html>
