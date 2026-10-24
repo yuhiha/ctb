@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>유희하 CTB 출력 스타일</title>
-<meta name="description" content="공간 유희하가 실무에서 쓰는 AutoCAD 출력 스타일(CTB) 무료 배포">
-<meta property="og:title" content="유희하 CTB 출력 스타일">
-<meta property="og:description" content="공간 유희하 실무 출력 스타일 YUHIHA.ctb — 내려받기와 설치 방법">
+<title>유희하 CAD 자료</title>
+<meta name="description" content="공간 유희하 실무 CAD 표준 양식(DWG)과 출력 스타일(CTB) 무료 배포">
+<meta property="og:title" content="유희하 CAD 자료">
+<meta property="og:description" content="공간 유희하 표준 양식 YUHIHA_Format.dwg와 출력 스타일 YUHIHA.ctb — 내려받기와 설치 방법">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +40,8 @@ thead th { background: var(--band); color: var(--teal); font-size: 13px; border-
 td.n { font-variant-numeric: tabular-nums; white-space: nowrap }
 .sw { display: inline-block; width: 12px; height: 12px; border: 1px solid #999; vertical-align: -1px; margin-right: 6px }
 .lw { display: inline-block; width: 36px; background: var(--ink); vertical-align: middle; margin-right: 8px }
+.dl + .dl { margin-top: 10px; background: var(--paper); color: var(--teal); border: 2px solid var(--teal) }
+ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
 footer { text-align: center; color: var(--muted); font-size: 13px }
 footer a { color: var(--teal) }
 </style>
@@ -47,13 +49,25 @@ footer a { color: var(--teal) }
 <body>
 <main>
   <section class="card">
-    <div class="brand"><small>YUHIHA · 공간 유희하</small><h1>유희하 CTB 출력 스타일</h1></div>
-    <p class="lead">공간 유희하가 실제 현장 도면을 출력할 때 쓰는 AutoCAD 출력 스타일이에요. 색상 번호마다 출력 굵기와 회색 단계를 정해 두어서, 레이어 색만 맞추면 벽·가구·치수·해치가 위계 있게 나와요.</p>
-    <a class="dl" href="YUHIHA.ctb" download="YUHIHA.ctb">YUHIHA.ctb 내려받기<small>AutoCAD 출력 스타일 · 5KB</small></a>
+    <div class="brand"><small>YUHIHA · 공간 유희하</small><h1>유희하 CAD 자료</h1></div>
+    <p class="lead">공간 유희하가 실제 현장 도면에 쓰는 표준 양식과 출력 스타일이에요. 두 파일을 같이 받아서 쓰시면 됩니다.</p>
+    <a class="dl" href="YUHIHA_Format.dwg" download="YUHIHA_Format.dwg">YUHIHA_Format.dwg 내려받기<small>표준 양식 도면 · 2.2MB · AutoCAD 2018 이상</small></a>
+    <a class="dl" href="YUHIHA.ctb" download="YUHIHA.ctb">YUHIHA.ctb 내려받기<small>출력 스타일 · 5KB</small></a>
   </section>
 
   <section class="card">
-    <h2><b>01</b>설치 방법</h2>
+    <h2><b>00</b>도면 파일에 들어 있는 것</h2>
+    <ul class="incl">
+      <li><b>실내 특화 블록 200여 개</b> — 가구 45 · 소품 43 · 조명 35 · 위생 35 · 가전 20 · 전기 8 · 창호 7 · 냉난방 4 등. 평면·정면·측면이 나뉜 동적 블록이 포함돼 있어요.</li>
+      <li><b>레이어 36개</b> — 번호 레이어(1. CEN ~ 25. 255)와 공종 레이어(A·D·E·M·W) 체계</li>
+      <li><b>A3 1:80 도면 세트</b> — 평면도 · 벽체실측도 · 철거설비도 · 천장기기배치도 · 스위치콘센트도 · 조명회로도 · 목공도와 도각</li>
+      <li><b>스타일</b> — 문자 스타일(YUHIHA_TEXT), 치수 스타일(1:50·1:80), 해치</li>
+    </ul>
+    <p class="note">모든 배치가 <code>YUHIHA.ctb</code>로 출력되게 맞춰 두었어요. 도각의 현장명·담당자는 비워 둔 자리표시예요.</p>
+  </section>
+
+  <section class="card">
+    <h2><b>01</b>CTB 설치 방법</h2>
     <ol class="steps">
       <li><span>1</span><div>AutoCAD 명령창에 <code>STYLESMANAGER</code>를 입력해요. 출력 스타일 폴더가 열려요.</div></li>
       <li><span>2</span><div>내려받은 <code>YUHIHA.ctb</code>를 그 폴더에 넣어요.</div></li>
