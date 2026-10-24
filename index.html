@@ -40,7 +40,8 @@ thead th { background: var(--band); color: var(--teal); font-size: 13px; border-
 td.n { font-variant-numeric: tabular-nums; white-space: nowrap }
 .sw { display: inline-block; width: 12px; height: 12px; border: 1px solid #999; vertical-align: -1px; margin-right: 6px }
 .lw { display: inline-block; width: 36px; background: var(--ink); vertical-align: middle; margin-right: 8px }
-.dl + .dl { margin-top: 10px; background: var(--paper); color: var(--teal); border: 2px solid var(--teal) }
+.sep { margin: 10px 0 0; font-size: 14px; color: var(--muted); text-align: center }
+.sep a { color: var(--teal); font-weight: 700 }
 ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
 footer { text-align: center; color: var(--muted); font-size: 13px }
 footer a { color: var(--teal) }
@@ -50,9 +51,10 @@ footer a { color: var(--teal) }
 <main>
   <section class="card">
     <div class="brand"><small>YUHIHA · 공간 유희하</small><h1>유희하 CAD 자료</h1></div>
-    <p class="lead">공간 유희하가 실제 현장 도면에 쓰는 표준 양식과 출력 스타일이에요. 두 파일을 같이 받아서 쓰시면 됩니다.</p>
-    <a class="dl" href="YUHIHA_Format.dwg" download="YUHIHA_Format.dwg">YUHIHA_Format.dwg 내려받기<small>표준 양식 도면 · 2.2MB · AutoCAD 2018 이상</small></a>
-    <a class="dl" href="YUHIHA.ctb" download="YUHIHA.ctb">YUHIHA.ctb 내려받기<small>출력 스타일 · 5KB</small></a>
+    <p class="lead">공간 유희하가 실제 현장 도면에 쓰는 표준 양식과 출력 스타일이에요. 압축 파일 하나에 다 들어 있어요.</p>
+    <a class="dl" href="YUHIHA_CAD.zip" download="YUHIHA_CAD.zip">CAD 자료 한 번에 받기<small>YUHIHA_CAD.zip · 1.9MB · 표준 양식 DWG + 출력 스타일 CTB + 설치 안내</small></a>
+    <p class="sep">따로 받기: <a href="YUHIHA_Format.dwg" download="YUHIHA_Format.dwg">YUHIHA_Format.dwg</a> (2.2MB, AutoCAD 2018 이상) · <a href="YUHIHA.ctb" download="YUHIHA.ctb">YUHIHA.ctb</a> (5KB)</p>
+    <p class="note">PC에서 받아 압축을 풀어 쓰시면 돼요. 폰에서는 링크를 PC로 옮겨(카톡 나에게 보내기 등) 받으시면 편해요.</p>
   </section>
 
   <section class="card">
@@ -70,7 +72,7 @@ footer a { color: var(--teal) }
     <h2><b>01</b>CTB 설치 방법</h2>
     <ol class="steps">
       <li><span>1</span><div>AutoCAD 명령창에 <code>STYLESMANAGER</code>를 입력해요. 출력 스타일 폴더가 열려요.</div></li>
-      <li><span>2</span><div>내려받은 <code>YUHIHA.ctb</code>를 그 폴더에 넣어요.</div></li>
+      <li><span>2</span><div>압축을 푼 <code>YUHIHA.ctb</code>를 그 폴더에 넣어요.</div></li>
       <li><span>3</span><div>출력(<code>Ctrl + P</code>)이나 페이지 설정에서 <b>플롯 스타일 테이블(펜 지정)</b>을 <code>YUHIHA.ctb</code>로 골라요. '플롯 스타일로 플롯'이 켜져 있어야 굵기가 적용돼요.</div></li>
     </ol>
     <p class="note">목록에 CTB가 안 보이면 그 도면이 <b>이름 있는 플롯 스타일(STB)</b> 도면이에요. 명령 <code>CONVERTPSTYLES</code>로 색상별 플롯 스타일 도면으로 바꾸면 나와요.</p>
