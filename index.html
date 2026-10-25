@@ -42,6 +42,8 @@ td.n { font-variant-numeric: tabular-nums; white-space: nowrap }
 .lw { display: inline-block; width: 36px; background: var(--ink); vertical-align: middle; margin-right: 8px }
 .sep { margin: 10px 0 0; font-size: 14px; color: var(--muted); text-align: center }
 .sep a { color: var(--teal); font-weight: 700 }
+.note[hidden] { display: none }
+.copy { display: block; width: 100%; margin-top: 10px; padding: 10px; font: inherit; font-weight: 700; color: var(--teal); background: var(--paper); border: 2px solid var(--teal); border-radius: 8px }
 ul.incl { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px }
 footer { text-align: center; color: var(--muted); font-size: 13px }
 footer a { color: var(--teal) }
@@ -52,7 +54,10 @@ footer a { color: var(--teal) }
   <section class="card">
     <div class="brand"><small>YUHIHA · 공간 유희하</small><h1>유희하 CAD 자료</h1></div>
     <p class="lead">공간 유희하가 실제 현장 도면에 쓰는 표준 양식과 출력 스타일이에요. 압축 파일 하나에 다 들어 있어요.</p>
-    <a class="dl" href="YUHIHA_CAD.zip" download="YUHIHA_CAD.zip">CAD 자료 한 번에 받기<small>YUHIHA_CAD.zip · 1.9MB · 표준 양식 DWG + 출력 스타일 CTB + 설치 안내</small></a>
+    <a class="dl" id="zip" href="YUHIHA_CAD.zip" download="YUHIHA_CAD.zip">CAD 자료 한 번에 받기<small>YUHIHA_CAD.zip · 1.9MB · 표준 양식 DWG + 출력 스타일 CTB + 설치 안내</small></a>
+    <p class="note ios" hidden>아이폰: 버튼을 누르면 공유 화면이 떠요. <b>'파일에 저장'</b>을 누르면 파일 앱에 저장돼요.</p>
+    <div class="note inapp" hidden>인스타 안에서 받기가 안 되면 오른쪽 위 <b>⋯ → 외부 브라우저로 열기</b>를 눌러 주세요. PC로 옮기려면 링크를 복사해 카톡 '나에게 보내기'로 보내세요.
+      <button type="button" class="copy">링크 복사</button></div>
     <p class="sep">따로 받기: <a href="YUHIHA_Format.dwg" download="YUHIHA_Format.dwg">YUHIHA_Format.dwg</a> (2.2MB, AutoCAD 2018 이상) · <a href="YUHIHA.ctb" download="YUHIHA.ctb">YUHIHA.ctb</a> (5KB)</p>
     <p class="note">PC에서 받아 압축을 풀어 쓰시면 돼요. 폰에서는 링크를 PC로 옮겨(카톡 나에게 보내기 등) 받으시면 편해요.</p>
   </section>
@@ -121,5 +126,46 @@ footer a { color: var(--teal) }
 
   <footer>© 2026 공간 유희하 · <a href="https://www.instagram.com/yuhiha_designers/">@yuhiha_designers</a></footer>
 </main>
+<script>
+// 아이폰은 인스타·카톡 안 브라우저에서 zip 내려받기가 막히는 경우가 많아 공유 화면('파일에 저장')으로 넘긴다.
+// 공유는 누른 순간에 바로 불러야 해서 zip을 미리 받아 둔다. ?ios 를 붙이면 PC에서도 이 경로를 시험할 수 있다.
+(function () {
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) || /[?&]ios\b/.test(location.search);
+  var inApp = /Instagram|FBAN|FBAV|KAKAOTALK|NAVER|Line\//.test(ua) || /[?&]inapp\b/.test(location.search);
+  var zip = document.getElementById('zip');
+  var file = null;
+
+  if (inApp) document.querySelector('.inapp').hidden = false;
+  document.querySelector('.copy').addEventListener('click', function (e) {
+    var url = location.origin + location.pathname, btn = e.currentTarget;
+    function done() { btn.textContent = '복사했어요'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, fallback);
+    } else fallback();
+    function fallback() {
+      var t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch (_) { prompt('이 링크를 복사하세요', url); }
+      t.remove();
+    }
+  });
+
+  if (!ios || !navigator.canShare || typeof File === 'undefined') return;
+  fetch(zip.getAttribute('href')).then(function (r) { return r.blob(); }).then(function (b) {
+    var f = new File([b], 'YUHIHA_CAD.zip', { type: 'application/zip' });
+    if (!navigator.canShare({ files: [f] })) return;
+    file = f;
+    document.querySelector('.ios').hidden = false;
+  }).catch(function () {});
+
+  zip.addEventListener('click', function (e) {
+    if (!file) return;
+    e.preventDefault();
+    navigator.share({ files: [file] }).catch(function (err) {
+      if (err && err.name !== 'AbortError') location.href = zip.getAttribute('href');
+    });
+  });
+})();
+</script>
 </body>
 </html>
